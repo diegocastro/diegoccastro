@@ -13,17 +13,17 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Post',
             fields=[
-                ('id', models.AutoField(primary_key=True, auto_created=True, verbose_name='ID', serialize=False)),
+                ('id', models.AutoField(verbose_name='ID', auto_created=True, serialize=False, primary_key=True)),
                 ('title', models.CharField(max_length=255, unique=True)),
                 ('slug', models.SlugField()),
                 ('short_description', models.CharField(db_index=True, max_length=255)),
                 ('text', models.TextField()),
-                ('published_date', models.DateTimeField(default=None, null=True, blank=True)),
+                ('published_date', models.DateTimeField(default=None, blank=True, null=True)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
             ],
             options={
-                'ordering': ['published_date'],
+                'ordering': ['-published_date'],
             },
         ),
     ]

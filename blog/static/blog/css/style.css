@@ -1,0 +1,59 @@
+/* Navbar
+ ======================================*/
+.navbar-inverse {
+    background-color: #333;
+}
+.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a {
+    color: #FFF;
+}
+.navbar-brand, .navbar-inverse .navbar-brand:hover {
+    background-color: #337AB7;
+    font-size: 16px;
+}
+/* Page header
+ ======================================*/
+.page-header {
+    margin-top: 21px;
+}
+/* Post
+ ======================================*/
+.post-list p {
+    font-size: 16px;
+}
+.post-list a:link, .post-list a:visited {
+    color: #333;
+    text-decoration: underline;
+}
+.post-list h2 small {
+    font-size: 50%;
+}
+.post-detail p {
+    font-family: Georgia,"Times New Roman",serif;
+    font-size: 20px;
+}
+/* Contact
+ ======================================*/
+.contact-view label {
+    font-weight: normal;
+}
+/* Footer
+ ======================================*/
+* {
+    margin: 0;
+}
+html, body {
+    height: 100%;
+}
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -155px; /* the bottom margin is the negative value of the footer's height */
+}
+.footer, .push {
+    height: 155px; /* .push must be the same height as .footer */
+}
+footer {
+    background-color: #F9F9F9;
+    padding: 20px 0;
+}

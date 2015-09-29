@@ -16,7 +16,7 @@ class Post(models.Model):
         self.save()
 
     class Meta:
-        ordering = ["published_date"]
+        ordering = ["-published_date"]
 
     def __str__(self):
         return self.title

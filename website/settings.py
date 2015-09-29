@@ -39,8 +39,12 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bootstrap3',
     'blog'
 )
+
+if env('DEBUG'):
+    INSTALLED_APPS += ('debug_toolbar',)
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -104,3 +108,10 @@ public_root = root.path('public/')
 
 STATIC_URL = '/static/'
 STATIC_ROOT = public_root('static')
+
+# Bootstrap 3
+# http://django-bootstrap3.readthedocs.org/en/latest/index.html
+
+BOOTSTRAP3 = {
+    'set_placeholder': False
+}

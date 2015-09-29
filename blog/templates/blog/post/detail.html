@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+    <div class="col-md-10 col-md-offset-1">
+        <article class="post-detail">
+            <header class="text-center">
+                <h1>{{ post.title }}</h1>
+                <h3>
+                    Diego Castro <br>
+                    <small>{{ post.published_date|date }}</small>
+                </h3>
+            </header>
+
+            <p class="lead">
+                {{ post.text }}
+            </p>
+        </article>
+    </div>
+{% endblock %}
