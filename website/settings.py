@@ -26,7 +26,7 @@ SECRET_KEY = env.str('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 
 
 # Application definition
@@ -63,7 +63,6 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
-        'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -71,9 +70,15 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'loaders': env.list('TEMPLATES_LOADERS')
         },
     },
 ]
+
+if not env('DEBUG'):
+    TEMPLATES[0]['loaders'] = [
+        ('django.template.loaders.cached.Loader', env.list('TEMPLATES_LOADERS'))
+    ]
 
 WSGI_APPLICATION = 'website.wsgi.application'
 
@@ -84,6 +89,8 @@ WSGI_APPLICATION = 'website.wsgi.application'
 DATABASES = {
     'default': env.db()
 }
+
+CONN_MAX_AGE = env.int('CONN_MAX_AGE', default=60)
 
 
 # Internationalization
