@@ -15,7 +15,7 @@ import environ
 
 root = environ.Path(__file__) - 2  # two folder back (/a/b/ - 2 = /)
 env = environ.Env(DEBUG=(bool, True),)  # set default values and casting
-environ.Env.read_env('.env')  # reading .env file
+environ.Env.read_env(root('.env'))  # reading .env file
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
@@ -106,15 +106,13 @@ USE_L10N = True
 
 USE_TZ = True
 
-# Public root (static, media)
-
-public_root = root.path('public/')
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = public_root('static')
+
+if env('STATIC_ROOT'):
+    STATIC_ROOT = env('STATIC_ROOT')
 
 # Bootstrap 3
 # http://django-bootstrap3.readthedocs.org/en/latest/index.html
