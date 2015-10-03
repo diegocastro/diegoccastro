@@ -75,8 +75,9 @@ TEMPLATES = [
     },
 ]
 
+# Template cache
 if not env('DEBUG'):
-    TEMPLATES[0]['loaders'] = [
+    TEMPLATES[0]['OPTIONS']['loaders'] = [
         ('django.template.loaders.cached.Loader', env.list('TEMPLATES_LOADERS'))
     ]
 
