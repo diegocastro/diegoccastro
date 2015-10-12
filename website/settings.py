@@ -111,9 +111,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = env('STATIC_ROOT')
 
-if env('STATIC_ROOT'):
-    STATIC_ROOT = env('STATIC_ROOT')
+# Email config
+# https://docs.djangoproject.com/en/1.8/topics/email/
+
+email_config = env.email()
+
+EMAIL_HOST = email_config['EMAIL_HOST']
+EMAIL_HOST_USER = email_config['EMAIL_HOST_USER']
+EMAIL_HOST_PASSWORD = email_config['EMAIL_HOST_PASSWORD']
+EMAIL_PORT = email_config['EMAIL_PORT']
+EMAIL_USE_TLS = email_config.get('EMAIL_USE_TLS', False)
 
 # Bootstrap 3
 # http://django-bootstrap3.readthedocs.org/en/latest/index.html
