@@ -1,8 +1,12 @@
 {% load staticfiles %}
 {% load bootstrap3 %}
+{% load i18n %}
+
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as languages %}
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="{{ LANGUAGE_CODE }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -43,14 +47,27 @@
                         <a href="{% url 'blog:post_list' %}">Home</a>
                     </li>
                     <li class="{% if url_name == 'contact_view' %}active{% endif %}">
-                        <a href="{% url 'blog:contact_view' %}">Contato</a>
+                        <a href="{% url 'blog:contact_view' %}">{% trans 'Contact' %}</a>
                     </li>
                 {% endwith %}
             </ul>
+            <p class="navbar-text navbar-right">
+                {% language 'en' %}
+                    <a href="{% url 'blog:post_list' %}" title="English">
+                        <img src="{% static 'blog/img/en-flag-icon.png' %}" alt="en">
+                    </a>
+                {% endlanguage %}
+
+                {% language 'pt-br' %}
+                    <a href="{% url 'blog:post_list' %}" title="Português">
+                        <img src="{% static 'blog/img/pt-br-flag-icon.png' %}" alt="pt-br">
+                    </a>
+                {% endlanguage %}
+            </p>
             <form class="navbar-form navbar-right" role="search">
                 <div class="form-group">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input type="text" class="form-control" placeholder="{% trans 'Search' %}">
                         <div class="input-group-btn">
                             <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
                         </div>

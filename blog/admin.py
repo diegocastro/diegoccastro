@@ -3,7 +3,7 @@ from .models import Post
 
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('title', 'short_description', 'published_date')
+    list_display = ('title', 'short_description', 'language', 'published_date')
     prepopulated_fields = {"slug": ("title",)}
 
 

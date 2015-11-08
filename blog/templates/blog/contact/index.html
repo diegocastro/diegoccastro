@@ -1,13 +1,14 @@
 {% extends "base.html" %}
 
+{% load i18n %}
 {% load bootstrap3 %}
 
-{% block title %}Contato{% endblock %}
+{% block title %}{% trans 'Contact' %}{% endblock %}
 
 {% block content %}
 <div class="col-md-12">
     <div class="page-header">
-        <h1>Contato</h1>
+        <h1>{% trans 'Contact' %}</h1>
     </div>
 
     <div class="row">
@@ -16,7 +17,7 @@
                 <form action="" method="post">{% csrf_token %}
                     {% bootstrap_form form %}
 
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">{% trans 'Submit' %}</button>
                 </form>
             </div>
         </div>
@@ -27,7 +28,7 @@
 
                 <p>
                     <a href="https://github.com/diegocastro"><i class="fa fa-github fa-3x fa-border"></i></a>
-                    <a href="https://br.linkedin.com/pub/diego-castro/2b/895/9a4"><i class="fa fa-linkedin fa-3x fa-border"></i></a>
+                    <a href="https://www.linkedin.com/pub/diego-castro/2b/895/9a4"><i class="fa fa-linkedin fa-3x fa-border"></i></a>
                 </p>
 
                 <p>
@@ -39,7 +40,7 @@
                 </p>
 
                 <p>
-                    <i class="fa fa-phone"></i> 55 21 9978-2589
+                    <i class="fa fa-phone"></i> 55 21 99978-2589
                 </p>
             </address>
         </div>

@@ -1,0 +1,5 @@
+Django==1.8.5
+django-bootstrap3==6.2.2
+django-environ==0.4.0
+django-flat-theme==1.1.1
+six==1.10.0

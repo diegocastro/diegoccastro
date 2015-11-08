@@ -69,7 +69,4 @@ venv/
 db.sqlite3
 
 # Public root (media, static)
-public/media/*
-!public/media/.gitkeep
-public/static/*
-!public/static/.gitkeep
+public/*
