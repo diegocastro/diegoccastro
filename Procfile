@@ -1,0 +1,1 @@
+web: gunicorn diegoccastro.wsgi --log-file -
